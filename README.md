@@ -93,103 +93,102 @@ cd src
 
 <hr>
 
-<h2>Benchmark Results</h2>
+<h2>Benchmark Results (N = 2048)</h2>
 
 <p>
-The following table presents execution times obtained for different matrix
-sizes and thread counts. The tiled implementation consistently outperforms
-the naive approach due to improved cache utilisation.
+The following table compares execution time between a naive OpenMP implementation
+and a cache-optimised tiled implementation. The reported speedup is calculated as
+the ratio of naive execution time to tiled execution time.
 </p>
 
 <table border="1" cellpadding="8" cellspacing="0">
-  <thead>
     <tr>
-      <th>Matrix Size</th>
-      <th>Threads</th>
-      <th>Naive OpenMP Time (s)</th>
-      <th>Tiled OpenMP Time (s)</th>
-      <th>Speedup</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1024 × 1024</td>
-      <td>1</td>
-      <td>2.45</td>
-      <td>1.72</td>
-      <td>1.42×</td>
+        <th>Threads</th>
+        <th>Naive Time (s)</th>
+        <th>Tiled Time (s)</th>
+        <th>Speedup</th>
     </tr>
     <tr>
-      <td>1024 × 1024</td>
-      <td>4</td>
-      <td>0.82</td>
-      <td>0.46</td>
-      <td>1.78×</td>
+        <td>1</td>
+        <td>87.9724</td>
+        <td>10.1177</td>
+        <td>8.69</td>
     </tr>
     <tr>
-      <td>2048 × 2048</td>
-      <td>4</td>
-      <td>6.91</td>
-      <td>3.88</td>
-      <td>1.78×</td>
+        <td>2</td>
+        <td>44.8283</td>
+        <td>5.5742</td>
+        <td>8.04</td>
     </tr>
     <tr>
-      <td>2048 × 2048</td>
-      <td>8</td>
-      <td>3.84</td>
-      <td>2.12</td>
-      <td>1.81×</td>
+        <td>4</td>
+        <td>34.9294</td>
+        <td>3.4970</td>
+        <td>9.99</td>
     </tr>
-  </tbody>
+    <tr>
+        <td>8</td>
+        <td>32.6481</td>
+        <td>2.1029</td>
+        <td>15.53</td>
+    </tr>
 </table>
+
+<p>
+These results demonstrate that cache tiling significantly reduces memory access
+latency and improves data locality, leading to substantial performance gains.
+The benefits become increasingly pronounced as the number of threads increases.
+</p>
 
 <hr>
 
-<h2>Strong Scaling Analysis</h2>
+<h2>Strong Scaling Analysis (Tiled OpenMP, N = 2048)</h2>
 
 <p>
-Strong scaling experiments were conducted by fixing the matrix size and
-varying the number of OpenMP threads. The results demonstrate diminishing
-parallel efficiency at higher thread counts due to memory bandwidth
-saturation and shared cache contention.
+Strong scaling evaluates how execution time decreases as the number of threads
+increases for a fixed problem size. The following table reports runtime, speedup,
+and parallel efficiency for the tiled OpenMP implementation.
 </p>
 
 <table border="1" cellpadding="8" cellspacing="0">
-  <thead>
     <tr>
-      <th>Threads</th>
-      <th>Execution Time (s)</th>
-      <th>Speedup</th>
-      <th>Parallel Efficiency</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>7.92</td>
-      <td>1.00</td>
-      <td>100%</td>
+        <th>Threads</th>
+        <th>Time (s)</th>
+        <th>Speedup</th>
+        <th>Efficiency (%)</th>
     </tr>
     <tr>
-      <td>2</td>
-      <td>4.15</td>
-      <td>1.91</td>
-      <td>95.5%</td>
+        <td>1</td>
+        <td>8.0001</td>
+        <td>1.00</td>
+        <td>100.00</td>
     </tr>
     <tr>
-      <td>4</td>
-      <td>2.21</td>
-      <td>3.58</td>
-      <td>89.5%</td>
+        <td>2</td>
+        <td>4.5733</td>
+        <td>1.75</td>
+        <td>87.47</td>
     </tr>
     <tr>
-      <td>8</td>
-      <td>1.36</td>
-      <td>5.82</td>
-      <td>72.8%</td>
+        <td>4</td>
+        <td>2.8410</td>
+        <td>2.82</td>
+        <td>70.40</td>
     </tr>
-  </tbody>
+    <tr>
+        <td>8</td>
+        <td>2.1627</td>
+        <td>3.70</td>
+        <td>46.24</td>
+    </tr>
 </table>
+
+<p>
+The results indicate diminishing parallel efficiency as thread count increases,
+primarily due to memory bandwidth saturation and synchronisation overheads.
+Nevertheless, the implementation exhibits good scalability up to moderate
+thread counts.
+</p>
 
 <hr>
 
