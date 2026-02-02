@@ -1,0 +1,11 @@
+# Binaries
+matrix_omp
+matrix_tiled
+
+# Object files
+*.o
+
+# Editor files
+.vscode/
+.DS_Store
+

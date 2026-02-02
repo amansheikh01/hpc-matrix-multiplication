@@ -1,0 +1,12 @@
+
+    TIME=$(echo "$OUT" | grep "Execution time" | awk '{print $(NF-1)}')
+
+    SPEEDUP=$(awk "BEGIN {printf \"%.2f\", $BASE_TIME / $TIME}")
+    EFFICIENCY=$(awk "BEGIN {printf \"%.2f\", ($BASE_TIME / $TIME) / $t * 100}")
+
+    printf "%-10d | %-15.4f | %-15s | %-15s\n" \
+           "$t" "$TIME" "$SPEEDUP" "$EFFICIENCY"
+done
+
+echo "====================================================================="
+
