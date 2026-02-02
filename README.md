@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>High-Performance Matrix Multiplication Using OpenMP</title>
+   
 </head>
 <body>
 
 
-
+<h1> High-Performance Matrix Multiplication Using OpenMP</h1>
 <p>
 This project presents a comprehensive study of high-performance matrix
 multiplication on shared-memory architectures using <b>OpenMP</b>.
