@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>HPC Matrix Multiplication using OpenMP</title>
+  <title></title>
 </head>
 <body>
 
