@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>High-Performance Matrix Multiplication Using OpenMP</title>
+    <meta charset="UTF-8">
+    <title>High-Performance Matrix Multiplication Using OpenMP</title>
 </head>
 <body>
 
