@@ -215,10 +215,17 @@ thread counts.
 
 <h2>Author</h2>
 
+<h2>Author</h2>
+
 <p>
-<b>Aman Bashir Sheikh</b><br>
-GitHub: <a href="https://github.com/amansheikh01">https://github.com/amansheikh01</a>
+<strong>Aman Bashir Sheikh</strong><br>
+Email: <a href="mailto:aman.b.sheikh119@gmail.com">aman.b.sheikh119@gmail.com</a><br>
+LinkedIn: 
+<a href="https://www.linkedin.com/in/aman-sheikh-aa701b253" target="_blank">
+www.linkedin.com/in/aman-sheikh-aa701b253
+</a>
 </p>
+
 
 </body>
 </html>
